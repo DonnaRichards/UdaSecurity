@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="743bcbe4-3850-423d-ae8a-9a1092e50827" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Image/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Image/src/main/java/com/udacity/catpoint/image/service/AwsImageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Image/src/main/java/com/udacity/catpoint/image/service/FakeImageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Image/src/main/java/module-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Security/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Security/src/main/java/com/udacity/catpoint/security/application/CatpointApp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Security/src/main/java/com/udacity/catpoint/security/application/CatpointGui.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Security/src/main/java/com/udacity/catpoint/security/application/ControlPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Security/src/main/java/com/udacity/catpoint/security/application/DisplayPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Security/src/main/java/com/udacity/catpoint/security/application/ImagePanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Security/src/main/java/com/udacity/catpoint/security/application/SensorPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Security/src/main/java/com/udacity/catpoint/security/application/StatusListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Security/src/main/java/com/udacity/catpoint/security/data/AlarmStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Security/src/main/java/com/udacity/catpoint/security/data/ArmingStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Security/src/main/java/com/udacity/catpoint/security/data/PretendDatabaseSecurityRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Security/src/main/java/com/udacity/catpoint/security/data/SecurityRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Security/src/main/java/com/udacity/catpoint/security/data/Sensor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Security/src/main/java/com/udacity/catpoint/security/data/SensorType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Security/src/main/java/com/udacity/catpoint/security/service/SecurityService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Security/src/main/java/com/udacity/catpoint/security/service/StyleService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Security/src/main/java/module-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="module-info" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2aHIxQmlJpYuiQyyYkG6haVvRzR" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.CatpointApp.executor": "Run",
+    "Maven.Image [clean].executor": "Run",
+    "Maven.Image [compile].executor": "Run",
+    "Maven.Image [deploy].executor": "Run",
+    "Maven.Image [install].executor": "Run",
+    "Maven.Image [package].executor": "Run",
+    "Maven.Image [site].executor": "Run",
+    "Maven.Image [test].executor": "Run",
+    "Maven.Image [validate].executor": "Run",
+    "Maven.Image [verify].executor": "Run",
+    "Maven.Security [clean].executor": "Run",
+    "Maven.Security [compile].executor": "Run",
+    "Maven.Security [validate].executor": "Run",
+    "Maven.UdaSecurityParent [clean].executor": "Run",
+    "Maven.UdaSecurityParent [compile].executor": "Run",
+    "Maven.UdaSecurityParent [validate].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "jdk.selected.JAVA_MODULE": "17 (3)",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "stardust.markdown.MarkdownSplitEditorSuppressor:keyList": [
+    ]
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="CatpointApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.udacity.catpoint.security.application.CatpointApp" />
+      <module name="Security" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.udacity.catpoint.security.application.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="UdaSecurityParent" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="UdaSecurityParent" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.CatpointApp" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="743bcbe4-3850-423d-ae8a-9a1092e50827" name="Changes" comment="" />
+      <created>1703969326277</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1703969326277</updated>
+      <workItem from="1703969327418" duration="11155000" />
+      <workItem from="1704139745647" duration="2835000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
