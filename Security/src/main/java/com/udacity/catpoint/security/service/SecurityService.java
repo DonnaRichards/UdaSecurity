@@ -1,6 +1,7 @@
 package com.udacity.catpoint.security.service;
 
 import com.udacity.catpoint.image.service.FakeImageService;
+import com.udacity.catpoint.image.service.ImageService;
 import com.udacity.catpoint.security.application.StatusListener;
 import com.udacity.catpoint.security.data.AlarmStatus;
 import com.udacity.catpoint.security.data.ArmingStatus;
@@ -20,11 +21,11 @@ import java.util.Set;
  */
 public class SecurityService {
 
-    private FakeImageService imageService;
+    private ImageService imageService;
     private SecurityRepository securityRepository;
     private Set<StatusListener> statusListeners = new HashSet<>();
 
-    public SecurityService(SecurityRepository securityRepository, FakeImageService imageService) {
+    public SecurityService(SecurityRepository securityRepository, ImageService imageService) {
         this.securityRepository = securityRepository;
         this.imageService = imageService;
     }
@@ -37,6 +38,14 @@ public class SecurityService {
     public void setArmingStatus(ArmingStatus armingStatus) {
         if(armingStatus == ArmingStatus.DISARMED) {
             setAlarmStatus(AlarmStatus.NO_ALARM);
+        }
+        // else block below added for application requirement #10
+        // - If the system is armed, reset all sensors to inactive.
+        else {
+            Set<Sensor> sensors = getSensors();
+            for (Sensor sensor: sensors) {
+                sensor.setActive(false);
+            }
         }
         securityRepository.setArmingStatus(armingStatus);
     }
@@ -94,9 +103,19 @@ public class SecurityService {
      * Internal method for updating the alarm status when a sensor has been deactivated
      */
     private void handleSensorDeactivated() {
+/*
         switch(securityRepository.getAlarmStatus()) {
             case PENDING_ALARM -> setAlarmStatus(AlarmStatus.NO_ALARM);
             case ALARM -> setAlarmStatus(AlarmStatus.PENDING_ALARM);
+        }
+
+        Above switch block has been commented out and replaced with if block below.
+        To fix application requirement #4 - If alarm is active, change in sensor state should
+         not affect the alarm state.
+        Previously it was being changed to PENDING_ALARM state if in ALARM state.
+*/
+        if (AlarmStatus.PENDING_ALARM.equals(securityRepository.getAlarmStatus())) {
+            setAlarmStatus(AlarmStatus.NO_ALARM);
         }
     }
 
@@ -106,7 +125,12 @@ public class SecurityService {
      * @param active
      */
     public void changeSensorActivationStatus(Sensor sensor, Boolean active) {
-        if(!sensor.getActive() && active) {
+        // Updated following if statement, replaced commented out line below with new one underneath
+        // for application requirement #5 If a sensor is activated while already active and the system is in pending state,
+        // change it to alarm state.
+
+        // if(!sensor.getActive() && active) {
+        if (active) {
             handleSensorActivated();
         } else if (sensor.getActive() && !active) {
             handleSensorDeactivated();
