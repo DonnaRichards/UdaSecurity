@@ -15,8 +15,8 @@ import java.util.stream.Collectors;
  */
 public class ControlPanel extends JPanel {
 
-    private SecurityService securityService;
-    private Map<ArmingStatus, JButton> buttonMap;
+    final private SecurityService securityService;
+    final private Map<ArmingStatus, JButton> buttonMap;
 
 
     public ControlPanel(SecurityService securityService) {

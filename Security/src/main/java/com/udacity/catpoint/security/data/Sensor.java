@@ -15,6 +15,16 @@ public class Sensor implements Comparable<Sensor> {
     private Boolean active;
     private SensorType sensorType;
 
+    /* No args constructor added here to resolve this error I got attempting to run the application
+    Exception in thread "main" java.lang.RuntimeException: Unable to create instance of class com.udacity.catpoint.security.data.Sensor. Registering an InstanceCreator or a TypeAdapter for this type, or adding a no-args constructor may fix this problem.
+	at com.google.gson@2.10.1/com.google.gson.internal.ConstructorConstructor$19.construct(ConstructorConstructor.java:373)
+    ......
+	at com.udacity.catpoint.security/com.udacity.catpoint.security.application.CatpointGui.<init>(CatpointGui.java:18)
+	at com.udacity.catpoint.security/com.udacity.catpoint.security.application.CatpointApp.main(CatpointApp.java:7)
+     */
+    public Sensor() {
+    }
+
     public Sensor(String name, SensorType sensorType) {
         this.name = name;
         this.sensorType = sensorType;

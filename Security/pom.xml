@@ -32,7 +32,6 @@
             <groupId>com.miglayout</groupId>
             <artifactId>miglayout-swing</artifactId>
             <version>4.2</version>
-            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -77,5 +76,32 @@
         </dependency>
 
     </dependencies>
-
+    <build>
+        <plugins>
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <executions>
+            <execution>
+                <phase>package</phase>
+                <goals>
+                    <goal>single</goal>
+                </goals>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>
+                                com.udacity.catpoint.security.application.CatpointApp
+                            </mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+            </execution>
+        </executions>
+    </plugin>
+    </plugins>
+    </build>
 </project>

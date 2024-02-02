@@ -1,5 +1,6 @@
 package com.udacity.catpoint.security.application;
 
+import com.udacity.catpoint.security.data.AlarmStatus;
 import com.udacity.catpoint.security.data.Sensor;
 import com.udacity.catpoint.security.data.SensorType;
 import com.udacity.catpoint.security.service.SecurityService;
@@ -12,19 +13,19 @@ import javax.swing.*;
  * Panel that allows users to add sensors to their system. Sensors may be
  * manually set to "active" and "inactive" to test the system.
  */
-public class SensorPanel extends JPanel {
+public class SensorPanel extends JPanel implements StatusListener {
 
-    private SecurityService securityService;
+    final private SecurityService securityService;
 
-    private JLabel panelLabel = new JLabel("Sensor Management");
-    private JLabel newSensorName = new JLabel("Name:");
-    private JLabel newSensorType = new JLabel("Sensor Type:");
-    private JTextField newSensorNameField = new JTextField();
-    private JComboBox newSensorTypeDropdown = new JComboBox(SensorType.values());
-    private JButton addNewSensorButton = new JButton("Add New Sensor");
+    final private JLabel panelLabel = new JLabel("Sensor Management");
+    final private JLabel newSensorName = new JLabel("Name:");
+    final private JLabel newSensorType = new JLabel("Sensor Type:");
+    final private JTextField newSensorNameField = new JTextField();
+    final private JComboBox newSensorTypeDropdown = new JComboBox(SensorType.values());
+    final private JButton addNewSensorButton = new JButton("Add New Sensor");
 
-    private JPanel sensorListPanel;
-    private JPanel newSensorPanel;
+    final private JPanel sensorListPanel;
+    final private JPanel newSensorPanel;
 
     public SensorPanel(SecurityService securityService) {
         super();
@@ -45,6 +46,10 @@ public class SensorPanel extends JPanel {
         add(panelLabel, "wrap");
         add(newSensorPanel, "span");
         add(sensorListPanel, "span");
+
+        // code from https://knowledge.udacity.com/questions/922256
+        securityService.addStatusListener(this);
+
     }
 
     /**
@@ -115,6 +120,18 @@ public class SensorPanel extends JPanel {
      */
     private void removeSensor(Sensor sensor) {
         securityService.removeSensor(sensor);
+        updateSensorList(sensorListPanel);
+    }
+
+    public void notify(AlarmStatus alarmStatus) {
+        // no behaviour necessary
+    }
+
+    public void catDetected(boolean catDetected) {
+        // no behaviour necessary
+    }
+
+    public void sensorStatusChanged() {
         updateSensorList(sensorListPanel);
     }
 }

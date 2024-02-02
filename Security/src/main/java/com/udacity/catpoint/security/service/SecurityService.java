@@ -11,6 +11,7 @@ import com.udacity.catpoint.security.data.Sensor;
 import java.awt.image.BufferedImage;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.concurrent.ConcurrentSkipListSet;
 
 /**
  * Service that receives information about changes to the security system. Responsible for
@@ -42,12 +43,21 @@ public class SecurityService {
         // else block below added for application requirement #10
         // - If the system is armed, reset all sensors to inactive.
         else {
-            Set<Sensor> sensors = getSensors();
-            for (Sensor sensor: sensors) {
-                sensor.setActive(false);
-            }
+            // this code from https://knowledge.udacity.com/questions/941328
+            ConcurrentSkipListSet<Sensor> sensors = new ConcurrentSkipListSet<>(getSensors());
+            sensors.forEach(sensor -> changeSensorActivationStatus(sensor, false));
         }
+        // this code from repo referenced at https://knowledge.udacity.com/questions/872228
+        statusListeners.forEach(StatusListener::sensorStatusChanged);
         securityRepository.setArmingStatus(armingStatus);
+    }
+
+    private boolean allSensorsDeactivated() {
+        Set<Sensor> sensors = getSensors();
+        for (Sensor sensor: sensors) {
+            if (sensor.getActive()) return false;
+        }
+        return true;
     }
 
     /**
@@ -58,7 +68,7 @@ public class SecurityService {
     private void catDetected(Boolean cat) {
         if(cat && getArmingStatus() == ArmingStatus.ARMED_HOME) {
             setAlarmStatus(AlarmStatus.ALARM);
-        } else {
+        } else if (!cat && allSensorsDeactivated()) {
             setAlarmStatus(AlarmStatus.NO_ALARM);
         }
 
@@ -125,12 +135,13 @@ public class SecurityService {
      * @param active
      */
     public void changeSensorActivationStatus(Sensor sensor, Boolean active) {
-        // Updated following if statement, replaced commented out line below with new one underneath
-        // for application requirement #5 If a sensor is activated while already active and the system is in pending state,
-        // change it to alarm state.
-
-        // if(!sensor.getActive() && active) {
-        if (active) {
+        /*
+         Updated following if statement, replaced commented out line below with new one underneath
+         for application requirement #5 If a sensor is activated while already active and the system is in pending state,
+         change it to alarm state.
+        */
+//    if(!sensor.getActive() && active) {
+      if (active) {
             handleSensorActivated();
         } else if (sensor.getActive() && !active) {
             handleSensorDeactivated();
